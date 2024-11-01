@@ -1,8 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CityCard from "./CityCard";
+import { City } from "../types/type";
+import axios from "axios";
 
 const CarouselCitySection = () => {
+  const [cities, setCities] = useState<City[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<String | null>(null);
+
+  useEffect(() => {
+    axios.get(`${import.meta.env.VITE_API_URL}/api/cities`, {
+      headers: {
+        "x-api-key": import.meta.env.VITE_API_KEY,
+      },
+    })
+      .then((response) => {
+        setCities(response.data.data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        setError(error.message);
+        setLoading(false);
+      });
+  }, []);
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+  if (error) {
+    return <p>Failed load data : {error}</p>;
+  }
+
   return (
     <section id="Cities" className="flex flex-col gap-[30px] mt-[100px]">
       <div className="w-full max-w-[1130px] mx-auto flex items-center justify-between">
@@ -26,9 +54,11 @@ const CarouselCitySection = () => {
             slidesOffsetAfter={30}
             slidesOffsetBefore={30}
           >
-            <SwiperSlide className="!w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]">
-              <CityCard />
-            </SwiperSlide>
+            {cities.map((city) => (
+              <SwiperSlide key={city.id} className="!w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]">
+                <CityCard city={city} />
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>
