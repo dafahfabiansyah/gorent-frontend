@@ -25,8 +25,8 @@ export interface City {
     name: string;
     slug: string;
     image: string;
-    // officeSpace_count : number;
-    officeSpaceCount : number;
+    officeSpace_count : number;
+    // officeSpaceCount : number;
     officeSpace : Office[];
 }
 

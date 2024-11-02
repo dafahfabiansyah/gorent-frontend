@@ -3,6 +3,7 @@ import OfficeCard from "../components/OfficeCard";
 import CarouselCitySection from "../components/CarouselCitySection";
 import BenefitsSection from "../components/BenefitsSection";
 import Navbar from "../components/Navbar";
+import RecomendOfficeSection from "../components/RecomendOfficeSection";
 
 const Home = () => {
   return (
@@ -126,19 +127,7 @@ const Home = () => {
       </header>
       <CarouselCitySection />
       <BenefitsSection />
-      <section
-        id="Fresh-Space"
-        className="flex flex-col gap-[30px] w-full max-w-[1130px] mx-auto mt-[100px] mb-[120px]"
-      >
-        <h2 className="font-bold text-[32px] leading-[48px] text-nowrap text-center">
-          Browse Our Fresh Space.
-          <br />
-          For Your Better Productivity.
-        </h2>
-        <div className="grid grid-cols-3 gap-[30px]">
-          <OfficeCard />
-        </div>
-      </section>
+     <RecomendOfficeSection/>
     </>
   );
 };

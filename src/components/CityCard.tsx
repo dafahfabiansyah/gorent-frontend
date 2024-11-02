@@ -1,6 +1,10 @@
 import React from "react";
 import { City } from "../types/type";
 
+interface CityCardProps {
+  city : City
+}
+
 const CityCard = ({city} : CityCardProps) => {
   return (
     <div className="card">
@@ -10,6 +14,7 @@ const CityCard = ({city} : CityCardProps) => {
             {city.name}
           </h3>
           {/* <p className="text-white">{city.officeSpaceCount} Offices</p> */}
+          <p className="text-white">{city.officeSpace_count} Offices</p>
         </div>
         <img
           src={`${import.meta.env.VITE_API_URL}/storage/${city.image}`}
@@ -24,6 +29,3 @@ const CityCard = ({city} : CityCardProps) => {
 
 export default CityCard;
 
-interface CityCardProps {
-  city : City
-}
