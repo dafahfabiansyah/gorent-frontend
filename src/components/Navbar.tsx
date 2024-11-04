@@ -10,7 +10,7 @@ const Navbar = () => {
           </a>
           <ul className="flex items-center gap-[50px] w-fit">
             <li>
-              <a href="/all">Browse</a>
+              <a href="/all-office">Browse</a>
             </li>
             <li>
               <a href="">Popular</a>

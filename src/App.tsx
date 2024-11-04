@@ -14,7 +14,7 @@ function App() {
    <Router>
       <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/all' element={<BrowseOffice />}/>
+        <Route path='/all-office' element={<BrowseOffice />}/>
         <Route path='/office/:slug' element={<DetailOffice />}/>
         <Route path='/office/:slug/book' element={<BookingOffice />}/>
         <Route path='/city/:slug' element={<DetailCity />}/>

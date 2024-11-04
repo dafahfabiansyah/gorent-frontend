@@ -8,7 +8,6 @@ import Navbar from "../components/Navbar";
 
 const DetailCity = () => {
   const { slug } = useParams<{ slug: string }>();
-
   const [city, setCity] = useState<City | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
