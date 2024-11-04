@@ -5,12 +5,12 @@ const Navbar = () => {
     // <nav className="bg-white">
     <nav className="bg-white sticky top-0 z-50">
         <div className="flex items-center justify-between w-full max-w-[1130px] py-[22px] mx-auto">
-          <a href="index.html">
+          <a href="/">
             <img src="/assets/images/logos/logo.svg" alt="logo" />
           </a>
           <ul className="flex items-center gap-[50px] w-fit">
             <li>
-              <a href="">Browse</a>
+              <a href="/all">Browse</a>
             </li>
             <li>
               <a href="">Popular</a>
@@ -22,7 +22,7 @@ const Navbar = () => {
               <a href="">Events</a>
             </li>
             <li>
-              <a href="view-booking-details.html">My Booking</a>
+              <a href="view-booking-details.html">Check Booking</a>
             </li>
           </ul>
           <a

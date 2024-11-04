@@ -25,10 +25,10 @@ export interface City {
     name: string;
     slug: string;
     image: string;
-    officeSpace_count : number;
-    // officeSpaceCount : number;
-    officeSpace : Office[];
+    officeSpace_count: number;
+    officeSpace: Office[];
 }
+
 
 export interface BookingDetails {
     id : number;

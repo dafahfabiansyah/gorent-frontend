@@ -2,19 +2,20 @@ import React, { useEffect, useState } from "react";
 import OfficeCard from "./OfficeCard";
 import { Office } from "../types/type";
 import axios from "axios";
+import { Loading } from "../utils/utils";
 
 const RecomendOfficeSection = () => {
-    const [offices, setOffices] = useState<Office[]>([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState<String | null>(null);
+  const [offices, setOffices] = useState<Office[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<String | null>(null);
 
-    
   useEffect(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/api/offices`, {
-      headers: {
-        "x-api-key": import.meta.env.VITE_API_KEY,
-      },
-    })
+    axios
+      .get(`${import.meta.env.VITE_API_URL}/api/offices`, {
+        headers: {
+          "x-api-key": import.meta.env.VITE_API_KEY,
+        },
+      })
       .then((response) => {
         setOffices(response.data.data);
         setLoading(false);
@@ -25,12 +26,11 @@ const RecomendOfficeSection = () => {
       });
   }, []);
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading />;
   }
   if (error) {
     return <p>Failed load data : {error}</p>;
   }
-
 
   return (
     <section

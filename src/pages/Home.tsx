@@ -1,5 +1,3 @@
-import React from "react";
-import OfficeCard from "../components/OfficeCard";
 import CarouselCitySection from "../components/CarouselCitySection";
 import BenefitsSection from "../components/BenefitsSection";
 import Navbar from "../components/Navbar";
@@ -127,7 +125,7 @@ const Home = () => {
       </header>
       <CarouselCitySection />
       <BenefitsSection />
-     <RecomendOfficeSection/>
+      <RecomendOfficeSection />
     </>
   );
 };

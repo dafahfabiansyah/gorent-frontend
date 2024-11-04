@@ -1,4 +1,3 @@
-import React from "react";
 import { City } from "../types/type";
 
 interface CityCardProps {
