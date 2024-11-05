@@ -42,7 +42,7 @@ const CarouselCitySection = () => {
           Our Favorite Cities
         </h2>
         <a
-          href="#"
+          href="/all-city"
           className="rounded-full rounded-full py-3 px-5 bg-white font-bold"
         >
           Explore All City

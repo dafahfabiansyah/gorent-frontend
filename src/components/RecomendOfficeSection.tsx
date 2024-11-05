@@ -3,6 +3,7 @@ import OfficeCard from "./OfficeCard";
 import { Office } from "../types/type";
 import axios from "axios";
 import { Loading } from "../utils/utils";
+import { Link } from "react-router-dom";
 
 const RecomendOfficeSection = () => {
   const [offices, setOffices] = useState<Office[]>([]);
@@ -44,7 +45,9 @@ const RecomendOfficeSection = () => {
       </h2>
       <div className="grid grid-cols-3 gap-[30px]">
         {offices.map((office) => (
-          <OfficeCard key={office.id} office={office} />
+          <Link key={office.id} to={`/office/${office.slug}`}>
+            <OfficeCard key={office.id} office={office} />
+          </Link>
         ))}
       </div>
     </section>

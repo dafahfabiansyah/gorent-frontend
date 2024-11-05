@@ -6,6 +6,7 @@ import DetailCity from './pages/DetailCity'
 import BookingSuccess from './pages/BookingSuccess'
 import BookingStatus from './pages/BookingStatus'
 import BrowseOffice from './pages/BrowseOffice'
+import BrowseCity from './pages/BrowseCity'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/all-office' element={<BrowseOffice />}/>
+        <Route path='/all-city' element={<BrowseCity />}/>
         <Route path='/office/:slug' element={<DetailOffice />}/>
         <Route path='/office/:slug/book' element={<BookingOffice />}/>
         <Route path='/city/:slug' element={<DetailCity />}/>
