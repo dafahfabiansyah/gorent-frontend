@@ -37,12 +37,14 @@ export interface City {
 export interface BookingDetails {
     id : number;
     name : string;
-    // phone_number : number;
-    phoneNumber : number;
-    // booking_trx_id : string;
-    bookingTransactionId : string;
-    // is_paid : boolean;
-    isPaid : boolean;
+    started_at : string;
+    ended_at : string;
+    phone_number : number;
+    // phoneNumber : number;
+    booking_trx_id : string;
+    // bookingTransactionId : string;
+    is_paid : boolean;
+    // isPaid : boolean;
     office : Office;
 }
 

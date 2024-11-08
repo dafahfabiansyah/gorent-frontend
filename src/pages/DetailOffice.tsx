@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Loading } from "../utils/utils";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { Office } from "../types/type";
 
@@ -12,22 +12,6 @@ const DetailOffice = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${import.meta.env.VITE_API_URL}/api/office-space/${slug}`, {
-  //       headers: {
-  //         "x-api-key": import.meta.env.VITE_API_KEY,
-  //       },
-  //     })
-  //     .then((response) => {
-  //       setOffice(response.data.data);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       setError(error.message);
-  //       setLoading(false);
-  //     });
-  // }, [slug]);
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_API_URL}/api/office-space/${slug}`, {
@@ -56,6 +40,7 @@ const DetailOffice = () => {
   if (!office) {
     return <p>category {office} not found</p>;
   }
+  
   return (
     <>
       <Navbar />
@@ -272,8 +257,8 @@ const DetailOffice = () => {
             </div>
             <hr className="border-[#F6F5FD]" />
             <div className="flex flex-col gap-[14px]">
-              <a
-                href="booking.html"
+              <Link to={`/office/${office.slug}/book`}  key={office.id}>
+              <div
                 className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
               >
                 <img
@@ -282,7 +267,8 @@ const DetailOffice = () => {
                   alt="icon"
                 />
                 <span>Book This Office</span>
-              </a>
+              </div>
+              </Link>
               <button className="flex items-center justify-center w-full rounded-full border border-[#000929] p-[16px_26px] gap-3 bg-white font-semibold">
                 <img
                   src="/assets/images/icons/save-add.svg"
