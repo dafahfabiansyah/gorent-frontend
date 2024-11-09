@@ -5,6 +5,7 @@ import { Loading } from "../utils/utils";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { Office } from "../types/type";
+import apiService from "../services/apiService";
 
 const DetailOffice = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -13,12 +14,8 @@ const DetailOffice = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/office-space/${slug}`, {
-        headers: {
-          "x-api-key": import.meta.env.VITE_API_KEY,
-        },
-      })
+    apiService
+      .get(`/api/office-space/${slug}`)
       .then((response) => {
         setOffice(response.data.data);
         setLoading(false);
@@ -27,7 +24,7 @@ const DetailOffice = () => {
         setError(error.message);
         setLoading(false);
       });
-  }, [slug]);  
+  }, [slug]);
 
   if (loading) {
     return <Loading />;
@@ -40,7 +37,7 @@ const DetailOffice = () => {
   if (!office) {
     return <p>category {office} not found</p>;
   }
-  
+
   return (
     <>
       <Navbar />
@@ -63,7 +60,8 @@ const DetailOffice = () => {
                       }`}
                       className="w-full h-full object-cover"
                       alt={`${import.meta.env.VITE_API_URL}/storage/${
-                        image.name}`}
+                        image.name
+                      }`}
                     />
                   </div>
                 </SwiperSlide>
@@ -79,7 +77,9 @@ const DetailOffice = () => {
         <div className="flex flex-col w-full rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
           <p className="w-fit rounded-full p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
             {/* Popular */}
-            {`${office.is_available === 1 ? "Available" : "Unavailable"} | ${office.is_open === 1 ? "Open" : "Closed"}`}
+            {`${office.is_available === 1 ? "Available" : "Unavailable"} | ${
+              office.is_open === 1 ? "Open" : "Closed"
+            }`}
           </p>
           <div className="flex items-center justify-between">
             <div>
@@ -127,9 +127,7 @@ const DetailOffice = () => {
               <p className="font-semibold text-right">4.5/5 (19,384)</p>
             </div>
           </div>
-          <p className="leading-[30px]">
-            {office.description}
-          </p>
+          <p className="leading-[30px]">{office.description}</p>
           <hr className="border-[#F6F5FD]" />
           <h2 className="font-bold">You Get What You Need Most</h2>
           <div className="grid grid-cols-3 gap-x-5 gap-y-[30px]">
@@ -233,41 +231,39 @@ const DetailOffice = () => {
           <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
             <div>
               <p className="font-extrabold text-[32px] leading-[48px] text-[#0D903A]">
-              {office.price.toLocaleString("id-ID", {
-                style: "currency",
-                currency: "IDR",
-              })}
+                {office.price.toLocaleString("id-ID", {
+                  style: "currency",
+                  currency: "IDR",
+                })}
               </p>
-              <p className="font-semibold mt-1">For {office.duration} days working</p>
+              <p className="font-semibold mt-1">
+                For {office.duration} days working
+              </p>
             </div>
             <hr className="border-[#F6F5FD]" />
             <div className="flex flex-col gap-5">
-              {office.benefits.map ((benefit) => (               
-              <div className="flex items-center gap-3">
-                <img
-                  src="/assets/images/icons/verify.svg"
-                  className="w-[30px] h-[30px]"
-                  alt="icon"
-                />
-                <p className="font-semibold leading-[28px]">
-                  {benefit.name}
-                </p>
-              </div>
+              {office.benefits.map((benefit) => (
+                <div key={benefit.id} className="flex items-center gap-3">
+                  <img
+                    src="/assets/images/icons/verify.svg"
+                    className="w-[30px] h-[30px]"
+                    alt="icon"
+                  />
+                  <p className="font-semibold leading-[28px]">{benefit.name}</p>
+                </div>
               ))}
             </div>
             <hr className="border-[#F6F5FD]" />
             <div className="flex flex-col gap-[14px]">
-              <Link to={`/office/${office.slug}/book`}  key={office.id}>
-              <div
-                className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
-              >
-                <img
-                  src="/assets/images/icons/slider-horizontal-white.svg"
-                  className="w-6 h-6"
-                  alt="icon"
-                />
-                <span>Book This Office</span>
-              </div>
+              <Link to={`/office/${office.slug}/book`} key={office.id}>
+                <div className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]">
+                  <img
+                    src="/assets/images/icons/slider-horizontal-white.svg"
+                    className="w-6 h-6"
+                    alt="icon"
+                  />
+                  <span>Book This Office</span>
+                </div>
               </Link>
               <button className="flex items-center justify-center w-full rounded-full border border-[#000929] p-[16px_26px] gap-3 bg-white font-semibold">
                 <img

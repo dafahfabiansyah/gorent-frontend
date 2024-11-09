@@ -5,6 +5,7 @@ import axios from "axios";
 import { City } from "../types/type";
 import { Loading } from "../utils/utils";
 import Navbar from "../components/Navbar";
+import apiService from "../services/apiService";
 
 const DetailCity = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -13,12 +14,8 @@ const DetailCity = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/city/${slug}`, {
-        headers: {
-          "x-api-key": import.meta.env.VITE_API_KEY,
-        },
-      })
+    apiService
+      .get(`/api/city/${slug}`)
       .then((response) => {
         setCity(response.data.data);
         setLoading(false);

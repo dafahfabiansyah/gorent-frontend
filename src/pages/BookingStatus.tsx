@@ -4,7 +4,7 @@ import { z } from "zod";
 import { BookingDetails } from "../types/type";
 import { bookingSchema } from "../types/validationBookingType";
 import axios from "axios";
-import { Navigate } from "react-router-dom";
+import apiService from "../services/apiService";
 
 const BookingStatus = () => {
   const [formData, setFormData] = useState({
@@ -20,10 +20,6 @@ const BookingStatus = () => {
   );
 
   const [error, setError] = useState<string | null>(null);
-  // src={`${import.meta.env.VITE_API_URL}/storage/${
-  //   image.image
-  // }`}
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -38,8 +34,6 @@ const BookingStatus = () => {
     const validation = bookingSchema.safeParse(formData);
 
     if (!validation.success) {
-      // setFormErrors(validation.error.issues);
-      // return;
       if (!validation.success) {
         setFormErrors(validation.error.issues);
       } else {
@@ -49,15 +43,9 @@ const BookingStatus = () => {
     setIsLoading(true);
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/check-booking`,
-        { ...formData },
-        {
-          headers: {
-            "x-api-key": import.meta.env.VITE_API_KEY,
-          },
-        }
-      );
+      const response = await apiService.post(`/api/check-booking`, {
+        ...formData,
+      });
       setBookingDetails(response.data.data);
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
@@ -185,7 +173,8 @@ const BookingStatus = () => {
                       alt="icon"
                     />
                     <p className="font-semibold">
-                      {bookingDetails.office.name} - {bookingDetails.office.address}
+                      {bookingDetails.office.name} -{" "}
+                      {bookingDetails.office.address}
                     </p>
                   </div>
                 </div>

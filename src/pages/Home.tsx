@@ -37,7 +37,7 @@ const Home = () => {
             </p>
             <div className="flex items-center gap-5">
               <a
-                href="#"
+                href="#Fresh-Space"
                 className="flex items-center rounded-full p-[20px_26px] gap-3 bg-[#0D903A]"
               >
                 <img
@@ -45,7 +45,7 @@ const Home = () => {
                   className="w-[30px] h-[30px]"
                   alt="icon"
                 />
-                <span className="font-bold text-xl leading-[30px] text-[#F7F7FD]">
+                <span  className="font-bold text-xl leading-[30px] text-[#F7F7FD]">
                   Explore Now
                 </span>
               </a>

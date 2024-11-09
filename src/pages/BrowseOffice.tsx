@@ -5,6 +5,7 @@ import axios from "axios";
 import { Loading } from "../utils/utils";
 import Navbar from "../components/Navbar";
 import { Office } from "../types/type";
+import apiService from "../services/apiService";
 
 const BrowseOffice = () => {
   const [officeSpaces, setOfficeSpaces] = useState<Office[]>([]);
@@ -12,12 +13,8 @@ const BrowseOffice = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/offices`, {
-        headers: {
-          "x-api-key": import.meta.env.VITE_API_KEY,
-        },
-      })
+    apiService
+      .get(`/api/offices`)
       .then((response) => {
         setOfficeSpaces(response.data.data); // Sesuaikan dengan struktur data dari API
         setLoading(false);

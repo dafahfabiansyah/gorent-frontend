@@ -4,6 +4,7 @@ import { Office } from "../types/type";
 import axios from "axios";
 import { Loading } from "../utils/utils";
 import { Link } from "react-router-dom";
+import apiService from "../services/apiService";
 
 const RecomendOfficeSection = () => {
   const [offices, setOffices] = useState<Office[]>([]);
@@ -11,12 +12,8 @@ const RecomendOfficeSection = () => {
   const [error, setError] = useState<String | null>(null);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/offices`, {
-        headers: {
-          "x-api-key": import.meta.env.VITE_API_KEY,
-        },
-      })
+    apiService
+      .get(`/api/offices`)
       .then((response) => {
         setOffices(response.data.data);
         setLoading(false);

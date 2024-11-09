@@ -11,7 +11,7 @@ const BookingSuccess = () => {
   const handleCopy = () => {
     navigator.clipboard.writeText(booking.booking_trx_id).then(() => {
       setIsCopied(true);
-      // setTimeout(() => setIsCopied(false), 2000);
+      setTimeout(() => setIsCopied(false), 2000);
     });
   };
 

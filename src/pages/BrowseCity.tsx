@@ -6,6 +6,7 @@ import { Loading } from "../utils/utils";
 import Navbar from "../components/Navbar";
 import { City } from "../types/type";
 import CityCard from "../components/CityCard";
+import apiService from "../services/apiService";
 
 const BrowseCity = () => {
   const [Cities, setCities] = useState<City[]>([]);
@@ -13,12 +14,8 @@ const BrowseCity = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/cities`, {
-        headers: {
-          "x-api-key": import.meta.env.VITE_API_KEY,
-        },
-      })
+    apiService
+      .get(`/api/cities`)
       .then((response) => {
         setCities(response.data.data);
         setLoading(false);

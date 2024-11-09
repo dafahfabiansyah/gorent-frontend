@@ -5,6 +5,7 @@ import { City } from "../types/type";
 import axios from "axios";
 import { Loading } from "../utils/utils";
 import { Link } from "react-router-dom";
+import apiService from "../services/apiService";
 
 const CarouselCitySection = () => {
   const [cities, setCities] = useState<City[]>([]);
@@ -12,12 +13,8 @@ const CarouselCitySection = () => {
   const [error, setError] = useState<String | null>(null);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/cities`, {
-        headers: {
-          "x-api-key": import.meta.env.VITE_API_KEY,
-        },
-      })
+    apiService
+      .get(`/api/cities`)
       .then((response) => {
         setCities(response.data.data);
         setLoading(false);

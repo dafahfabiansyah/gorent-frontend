@@ -5,6 +5,7 @@ import { z } from "zod";
 import axios from "axios";
 import { Loading } from "../utils/utils";
 import { bookingSchema } from "../types/validationBookingType";
+import apiService from "../services/apiService";
 
 const BookingOffice = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -30,12 +31,8 @@ const BookingOffice = () => {
     useState<number>(0);
 
   useEffect(() => {
-    axios
-      .get(`${import.meta.env.VITE_API_URL}/api/office-space/${slug}`, {
-        headers: {
-          "x-api-key": import.meta.env.VITE_API_KEY,
-        },
-      })
+    apiService
+      .get(`/api/office-space/${slug}`)
       .then((response) => {
         setOffice(response.data.data);
 
@@ -102,16 +99,9 @@ const BookingOffice = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/booking-transaction`,
-        // `http://127.0.0.1:8000/api/booking-transaction`,
-
+      const response = await apiService.post(
+        `/api/booking-transaction`,
         { ...formData },
-        {
-          headers: {
-            "x-api-key": import.meta.env.VITE_API_KEY,
-          },
-        }
       );
       console.log(response),
         navigate("/success-booking", {
@@ -149,7 +139,6 @@ const BookingOffice = () => {
         </h1>
         <div className="absolute w-full h-full bg-[linear-gradient(180deg,_rgba(0,0,0,0)_0%,#000000_91.83%)] z-10" />
         <img
-          // src="/assets/images/thumbnails/thumbnail-details-4.png"
           src={`${import.meta.env.VITE_API_URL}/storage/${office.thumbnail}`}
           className="absolute w-full h-full object-cover object-top"
           alt=""
