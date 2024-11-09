@@ -24,7 +24,7 @@ const BenefitsSection = () => {
               Privacy-First Design
             </p>
             <p className="text-sm leading-[24px]">
-              Lorem available without even higher tax that cost much
+              Desain mengutamakan privasi bagi pengguna.
             </p>
           </div>
         </div>
@@ -39,7 +39,7 @@ const BenefitsSection = () => {
           <div className="flex flex-col gap-[5px]">
             <p className="font-bold text-lg leading-[27px]">Easy Move Access</p>
             <p className="text-sm leading-[24px]">
-              Lorem available without even higher tax that cost much
+              Akses mudah untuk pindah dan mobilitas.
             </p>
           </div>
         </div>
@@ -56,7 +56,7 @@ const BenefitsSection = () => {
               Flexibility Spaces
             </p>
             <p className="text-sm leading-[24px]">
-              Lorem available without even higher tax that cost much
+              Ruang fleksibel yang dapat disesuaikan kebutuhan.
             </p>
           </div>
         </div>
@@ -71,7 +71,7 @@ const BenefitsSection = () => {
           <div className="flex flex-col gap-[5px]">
             <p className="font-bold text-lg leading-[27px]">Top-Rated Office</p>
             <p className="text-sm leading-[24px]">
-              Lorem available without even higher tax that cost much
+              Kantor dengan rating terbaik dan fasilitas unggul.
             </p>
           </div>
         </div>
@@ -88,7 +88,7 @@ const BenefitsSection = () => {
               Extra Snacks Available
             </p>
             <p className="text-sm leading-[24px]">
-              Lorem available without even higher tax that cost much
+              Tersedia camilan tambahan untuk pengguna.
             </p>
           </div>
         </div>
@@ -105,7 +105,7 @@ const BenefitsSection = () => {
               Sustain for Business
             </p>
             <p className="text-sm leading-[24px]">
-              Lorem available without even higher tax that cost much
+              Berkelanjutan dan cocok untuk bisnis jangka panjang.
             </p>
           </div>
         </div>

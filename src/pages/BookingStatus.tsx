@@ -244,7 +244,38 @@ const BookingStatus = () => {
             <div className="flex flex-col h-fit shrink-0 rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
               <h2 className="font-bold">Order Details</h2>
               <div className="flex flex-col gap-5">
-                {bookingDetails.is_paid === true ? (
+              {bookingDetails.is_paid === 1 ? 
+               <div className="flex items-center justify-between">
+               <p className="font-semibold">Status Pembayaran</p>
+               <p className="rounded-full w-fit p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
+                 SUCCESS
+               </p>
+             </div>
+              : 
+              <div className="flex items-center justify-between">
+              <p className="font-semibold">Status Pembayaran</p>
+              <p className="rounded-full w-fit p-[6px_16px] bg-[#FF852D] font-bold text-sm leading-[21px] text-[#F7F7FD]">
+                PENDING
+              </p>
+            </div>
+            }
+
+            {/* {bookingDetails.is_paid == 1 ? (
+               <div className="flex items-center justify-between">
+               <p className="font-semibold">Status Pembayaran</p>
+               <p className="rounded-full w-fit p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
+                 SUCCESS
+               </p>
+             </div>
+            ) : (
+              <div className="flex items-center justify-between">
+                <p className="font-semibold">Status Pembayaran</p>
+                <p className="rounded-full w-fit p-[6px_16px] bg-[#FF852D] font-bold text-sm leading-[21px] text-[#F7F7FD]">
+                  PENDING
+                </p>
+              </div>
+            )} */}
+                {/* {bookingDetails.is_paid === false ? (
                   <div className="flex items-center justify-between">
                     <p className="font-semibold">Status Pembayaran</p>
                     <p className="rounded-full w-fit p-[6px_16px] bg-[#FF852D] font-bold text-sm leading-[21px] text-[#F7F7FD]">
@@ -258,7 +289,7 @@ const BookingStatus = () => {
                       SUCCESS
                     </p>
                   </div>
-                )}
+                )} */}
 
                 <div className="flex items-center justify-between">
                   <p className="font-semibold">Booking TRX ID</p>

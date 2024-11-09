@@ -43,7 +43,7 @@ export interface BookingDetails {
     // phoneNumber : number;
     booking_trx_id : string;
     // bookingTransactionId : string;
-    is_paid : boolean;
+    is_paid : number;
     // isPaid : boolean;
     office : Office;
 }
