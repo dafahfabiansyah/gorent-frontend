@@ -347,7 +347,7 @@ const BookingOffice = () => {
               </div>
               <div className="flex flex-col gap-[2px]">
                 <div className="flex items-center gap-1">
-                  <p className="font-semibold">FirstOffice Angga</p>
+                  <p className="font-semibold">FirstOffice</p>
                   <img
                     src="/assets/images/icons/verify.svg"
                     className="w-[18px] h-[18px]"
@@ -367,7 +367,7 @@ const BookingOffice = () => {
               </div>
               <div className="flex flex-col gap-[2px]">
                 <div className="flex items-center gap-1">
-                  <p className="font-semibold">FirstOffice Angga</p>
+                  <p className="font-semibold">FirstOffice</p>
                   <img
                     src="/assets/images/icons/verify.svg"
                     className="w-[18px] h-[18px]"

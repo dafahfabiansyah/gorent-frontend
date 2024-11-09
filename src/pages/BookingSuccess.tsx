@@ -34,7 +34,9 @@ const BookingSuccess = () => {
           <div className="flex items-center gap-4">
             <div className="flex shrink-0 w-[140px] h-[100px] rounded-[20px] overflow-hidden">
               <img
-                src="assets/images/thumbnails/thumbnail-details-4.png"
+                src={`${import.meta.env.VITE_API_URL}/storage/${
+                  office.thumbnail
+                }`}
                 className="w-full h-full object-cover"
                 alt="thumbnail"
               />
@@ -80,7 +82,7 @@ const BookingSuccess = () => {
           <hr className="border-[#F6F5FD]" />
           <p className="font-semibold leading-[28px] text-center">
             Pesanan Anda sedang kami proses, kami akan menginformasikan status
-            Anda melalui SMS
+            Anda melalui Email
           </p>
           <Link to={"/booking-status"}>
             <div className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]">
