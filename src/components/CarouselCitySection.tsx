@@ -32,15 +32,17 @@ const CarouselCitySection = () => {
   }
 
   return (
-    <section id="Cities" className="flex flex-col gap-[30px] mt-[100px]">
-      <div className="w-full max-w-[1130px] mx-auto flex items-center justify-between">
-        <h2 className="font-bold text-[32px] leading-[48px] text-nowrap">
-          You Can Choose <br />
-          Our Favorite Cities
+    <section
+      id="Cities"
+      className="flex flex-col gap-6 md:gap-[30px] mt-[50px] md:mt-[100px] px-4 md:px-0"
+    >
+      <div className="w-full max-w-full md:max-w-[1130px] justify-between mx-auto flex flex-row items-center md:justify-between gap-4 md:gap-0">
+        <h2 className="font-bold text-[16px] md:text-[32px] leading-[32px] md:leading-[48px] text-center md:text-left whitespace-nowrap">
+          Choose Our Favorite Cities
         </h2>
         <a
           href="/all-city"
-          className="rounded-full rounded-full py-3 px-5 bg-white font-bold"
+          className="rounded-full py-2 px-4 md:py-3 md:px-5 hover:text-[#0D903A] transition-all bg-white font-bold text-sm md:text-base"
         >
           Explore All City
         </a>
@@ -49,15 +51,15 @@ const CarouselCitySection = () => {
         <div className="swiper-wrapper">
           <Swiper
             direction={"horizontal"}
-            spaceBetween={30}
+            spaceBetween={20}
             slidesPerView={"auto"}
-            slidesOffsetAfter={30}
-            slidesOffsetBefore={30}
+            slidesOffsetAfter={20}
+            slidesOffsetBefore={20}
           >
             {cities.map((city) => (
               <SwiperSlide
                 key={city.id}
-                className="!w-fit first-of-type:pl-[calc((100%-1130px-60px)/2)] last-of-type:pr-[calc((100%-1130px-60px)/2)]"
+                className="!w-fit first-of-type:pl-[10px] last-of-type:pr-[10px] md:first-of-type:pl-[calc((100%-1130px-60px)/2)] md:last-of-type:pr-[calc((100%-1130px-60px)/2)]"
               >
                 <Link to={`/city/${city.slug}`}>
                   <CityCard city={city} />

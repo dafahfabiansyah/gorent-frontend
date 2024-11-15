@@ -4,13 +4,13 @@ const BenefitsSection = () => {
   return (
     <section
       id="Benefits"
-      className="flex items-center justify-center w-[1015px] mx-auto gap-[100px] mt-[100px]"
+      className="flex items-center justify-center w-full max-w-[1130px] mx-auto gap-[100px] mt-[100px] flex-wrap"
     >
-      <h2 className="font-bold text-[32px] leading-[48px] text-nowrap">
+      <h2 className="font-bold text-[32px] leading-[48px] text-nowrap w-full text-center">
         We Might Good <br />
         For Your Business
       </h2>
-      <div className="grid grid-cols-2 gap-[30px]">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-[30px] w-full">
         <div className="flex items-center gap-4">
           <div className="flex items-center justify-center shrink-0 w-[70px] h-[70px] rounded-[23px] bg-white overflow-hidden">
             <img

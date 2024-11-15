@@ -40,7 +40,7 @@ const RecomendOfficeSection = () => {
         <br />
         For Your Better Productivity.
       </h2>
-      <div className="grid grid-cols-3 gap-[30px]">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-[30px]">
         {offices.map((office) => (
           <Link key={office.id} to={`/office/${office.slug}`}>
             <OfficeCard key={office.id} office={office} />
