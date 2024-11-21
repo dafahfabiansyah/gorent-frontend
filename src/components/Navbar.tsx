@@ -49,22 +49,40 @@ const Navbar = () => {
           </button>
           <ul className="flex flex-col mt-16 space-y-4 px-6 ">
             <li>
-              <a className="block px-4 py-2 hover:bg-gray-200" href="/all-office">Office</a>
+              <a
+                className="block px-4 py-2 hover:bg-gray-200"
+                href="/all-office"
+              >
+                Office
+              </a>
             </li>
             <li>
-              <a className="block px-4 py-2 hover:bg-gray-200" href="/all-city">City</a>
+              <a className="block px-4 py-2 hover:bg-gray-200" href="/all-city">
+                City
+              </a>
             </li>
             <li>
-              <a className="block px-4 py-2 hover:bg-gray-200" href="">Popular</a>
+              <a className="block px-4 py-2 hover:bg-gray-200 pointer-events-none" href="">
+                Popular
+              </a>
             </li>
             <li>
-              <a className="block px-4 py-2 hover:bg-gray-200" href="">Categories</a>
+              <a className="block px-4 py-2 hover:bg-gray-200 pointer-events-none" href="">
+                Categories
+              </a>
             </li>
             <li>
-              <a className="block px-4 py-2 hover:bg-gray-200" href="">Events</a>
+              <a className="block px-4 py-2 hover:bg-gray-200 pointer-events-none" href="">
+                Events
+              </a>
             </li>
             <li>
-              <a className="block px-4 py-2 hover:bg-gray-200" href="/booking-status">Check Booking</a>
+              <a
+                className="block px-4 py-2 hover:bg-gray-200"
+                href="/booking-status"
+              >
+                Check Booking
+              </a>
             </li>
             <li>
               <a
@@ -108,13 +126,13 @@ const Navbar = () => {
             </div>
           </li>
           <li>
-            <a href="">Popular</a>
+            <a className="pointer-events-none" href="">Popular</a>
           </li>
           <li>
-            <a href="">Categories</a>
+            <a className="pointer-events-none" href="">Categories</a>
           </li>
           <li>
-            <a href="">Events</a>
+            <a className="pointer-events-none" href="">Events</a>
           </li>
           <li>
             <a href="/booking-status">Check Booking</a>

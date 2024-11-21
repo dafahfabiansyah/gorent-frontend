@@ -75,11 +75,21 @@ const BookingStatus = () => {
           View Your Booking Details
         </h1>
         <div className="absolute w-full h-full bg-[linear-gradient(180deg,_rgba(0,0,0,0)_0%,#000000_91.83%)] z-10" />
-        <img
-          src="assets/images/thumbnails/thumbnail-details-5.png"
-          className="absolute w-full h-full object-cover object-top"
-          alt=""
-        />
+        {bookingDetails ? (
+          <img
+            src={`${import.meta.env.VITE_API_URL}/storage/${
+              bookingDetails.office.thumbnail
+            }`}
+            className="absolute w-full h-full object-cover object-top"
+            alt={bookingDetails.office.name}
+          />
+        ) : (
+          <img
+            src="assets/images/thumbnails/thumbnail-details-5.png"
+            className="absolute w-full h-full object-cover object-top"
+            alt="thumbnail"
+          />
+        )}
       </div>
       <section
         id="Check-Booking"
@@ -148,7 +158,7 @@ const BookingStatus = () => {
           </button>
         </form>
 
-        {bookingDetails && (
+        {bookingDetails ? (
           <div id="Result" className="grid grid-cols-2 gap-[30px]">
             <div className="flex flex-col h-fit shrink-0 rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
               <div className="flex items-center gap-4">
@@ -244,55 +254,23 @@ const BookingStatus = () => {
             <div className="flex flex-col h-fit shrink-0 rounded-[20px] border border-[#E0DEF7] p-[30px] gap-[30px] bg-white">
               <h2 className="font-bold">Order Details</h2>
               <div className="flex flex-col gap-5">
-              {bookingDetails.is_paid === 1 ? 
-               <div className="flex items-center justify-between">
-               <p className="font-semibold">Status Pembayaran</p>
-               <p className="rounded-full w-fit p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-                 SUCCESS
-               </p>
-             </div>
-              : 
-              <div className="flex items-center justify-between">
-              <p className="font-semibold">Status Pembayaran</p>
-              <p className="rounded-full w-fit p-[6px_16px] bg-[#FF852D] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-                PENDING
-              </p>
-            </div>
-            }
-
-            {/* {bookingDetails.is_paid == 1 ? (
-               <div className="flex items-center justify-between">
-               <p className="font-semibold">Status Pembayaran</p>
-               <p className="rounded-full w-fit p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-                 SUCCESS
-               </p>
-             </div>
-            ) : (
-              <div className="flex items-center justify-between">
-                <p className="font-semibold">Status Pembayaran</p>
-                <p className="rounded-full w-fit p-[6px_16px] bg-[#FF852D] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-                  PENDING
-                </p>
-              </div>
-            )} */}
-                {/* {bookingDetails.is_paid === false ? (
-                  <div className="flex items-center justify-between">
-                    <p className="font-semibold">Status Pembayaran</p>
-                    <p className="rounded-full w-fit p-[6px_16px] bg-[#FF852D] font-bold text-sm leading-[21px] text-[#F7F7FD]">
-                      PENDING
-                    </p>
-                  </div>
-                ) : (
+                {bookingDetails.is_paid === 1 ? (
                   <div className="flex items-center justify-between">
                     <p className="font-semibold">Status Pembayaran</p>
                     <p className="rounded-full w-fit p-[6px_16px] bg-[#0D903A] font-bold text-sm leading-[21px] text-[#F7F7FD]">
                       SUCCESS
                     </p>
                   </div>
-                )} */}
-
+                ) : (
+                  <div className="flex items-center justify-between">
+                    <p className="font-semibold">Status Pembayaran</p>
+                    <p className="rounded-full w-fit p-[6px_16px] bg-[#FF852D] font-bold text-sm leading-[21px] text-[#F7F7FD]">
+                      PENDING
+                    </p>
+                  </div>
+                )}
                 <div className="flex items-center justify-between">
-                  <p className="font-semibold">Booking TRX ID</p>
+                  <p className="font-semibold">Booking Transaction ID</p>
                   <p className="font-bold">{bookingDetails.booking_trx_id}</p>
                 </div>
                 <div className="flex items-center justify-between">
@@ -352,6 +330,17 @@ const BookingStatus = () => {
                 <span>Call Customer Service</span>
               </a>
             </div>
+          </div>
+        ) : (
+          <div className="flex flex-col items-center justify-center gap-5">
+            <img
+              src="assets/images/icons/receipt-text.svg"
+              className="w-[100px] h-[100px]"
+              alt="icon"
+            />
+            <p className="font-bold text-[22px] leading-[33px]">
+              Remember your transaction ID to track your order
+            </p>
           </div>
         )}
       </section>
