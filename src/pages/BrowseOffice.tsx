@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import OfficeCard from "../components/OfficeCard";
-import axios from "axios";
 import { Loading } from "../utils/utils";
 import Navbar from "../components/Navbar";
 import { Office } from "../types/type";

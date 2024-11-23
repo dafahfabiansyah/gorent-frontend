@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import CityCard from "./CityCard";
 import { City } from "../types/type";
-import axios from "axios";
 import { Loading } from "../utils/utils";
 import { Link } from "react-router-dom";
 import apiService from "../services/apiService";
