@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import OfficeCard from "./OfficeCard";
 import { Office } from "../types/type";
-import axios from "axios";
 import { Loading } from "../utils/utils";
 import { Link } from "react-router-dom";
 import apiService from "../services/apiService";
