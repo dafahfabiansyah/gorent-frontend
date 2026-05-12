@@ -199,6 +199,30 @@ const BookingOffice = () => {
               </div>
             </div>
             <div className="flex flex-col gap-2">
+              <label htmlFor="email" className="font-semibold">
+                Email Address
+              </label>
+              <div className="flex items-center rounded-full border border-[#000929] px-5 gap-[10px] transition-all duration-300 focus-within:ring-2 focus-within:ring-[#0D903A]">
+                <img
+                  src="/assets/images/icons/receipt-text-black.svg"
+                  className="w-6 h-6"
+                  alt="icon"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  id="email"
+                  className="appearance-none outline-none w-full py-3 font-semibold placeholder:font-normal placeholder:text-[#000929]"
+                  placeholder="Write your email address"
+                />
+                {formErrors.find((error) => error.path.includes("email")) && (
+                  <p className="text-red-500">Valid email is required</p>
+                )}
+              </div>
+            </div>
+            <div className="flex flex-col gap-2">
               <label htmlFor="phone" className="font-semibold">
                 Phone Number
               </label>
