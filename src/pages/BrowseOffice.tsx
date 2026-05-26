@@ -4,7 +4,6 @@ import { Loading } from "../utils/utils";
 import Navbar from "../components/Navbar";
 import { Office } from "../types/type";
 import apiService from "../services/apiService";
-import OfficeCard from "../components/OfficeCard";
 import HeroBanner from "../components/HeroBanner";
 
 const BrowseOffice = () => {
