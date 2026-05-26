@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import { Office } from "../types/type";
 
 interface OfficeCardProps {
@@ -7,7 +7,7 @@ interface OfficeCardProps {
 
 const OfficeCard = ({ office }: OfficeCardProps) => {
   return (
-    <div className="card">
+    <Link to={`/office/${office.slug}`} className="card">
       <div className="flex flex-col rounded-[20px] border border-[#E0DEF7] bg-white overflow-hidden">
         <div className="thumbnail-container relative w-full h-[200px]">
           <p
@@ -85,7 +85,7 @@ const OfficeCard = ({ office }: OfficeCardProps) => {
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

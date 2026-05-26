@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Navbar from "../components/Navbar";
 import { z } from "zod";
 import { BookingDetails } from "../types/type";
@@ -19,7 +19,6 @@ const BookingStatus = () => {
     null
   );
 
-  const [error, setError] = useState<string | null>(null);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -55,9 +54,9 @@ const BookingStatus = () => {
           error.message,
           error.response?.data
         );
-        setError(error.message);
+        console.error("Booking status request failed:", error.message);
       } else {
-        setError("error");
+        console.error("Unknown error while checking booking status");
       }
     } finally {
       setIsLoading(false);

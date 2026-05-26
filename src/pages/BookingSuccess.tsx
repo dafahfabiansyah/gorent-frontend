@@ -81,11 +81,20 @@ const BookingSuccess = () => {
           </div>
           <hr className="border-[#F6F5FD]" />
           <p className="font-semibold leading-[28px] text-center">
-            Pesanan Anda sedang kami proses, kami akan menginformasikan status
-            Anda melalui Email
+            Selesaikan pembayaran untuk mengkonfirmasi booking Anda
           </p>
+          {booking.payment_url && (
+            <a
+              href={booking.payment_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]"
+            >
+              <span>Bayar Sekarang</span>
+            </a>
+          )}
           <Link to={"/booking-status"}>
-            <div className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 bg-[#0D903A] font-bold text-[#F7F7FD]">
+            <div className="flex items-center justify-center w-full rounded-full p-[16px_26px] gap-3 border border-[#0D903A] font-bold text-[#0D903A]">
               <span>View Booking Details</span>
             </div>
           </Link>

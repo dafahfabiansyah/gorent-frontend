@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -11,7 +11,7 @@ const Navbar = () => {
     <nav className="bg-white sticky top-0 z-50">
       <div className="flex items-center justify-between w-full max-w-[1130px] py-[22px] mx-auto px-4 md:px-0">
         <a href="/">
-          <img src="/assets/images/logos/logo.svg" alt="logo" />
+          <img src="/assets/images/logos/logo without text.svg" alt="logo" />
         </a>
 
         {/* Hamburger Icon */}
